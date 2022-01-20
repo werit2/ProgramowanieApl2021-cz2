@@ -7,10 +7,9 @@ import android.text.InputType
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Room
 import com.example.myapplication2.databinding.ActivityMainBinding
+import kotlinx.android.synthetic.main.przedmiot_row.view.*
 
-//import com.example.myapplication2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,22 +24,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val db = Room.databaseBuilder(
-            applicationContext,
-            ZakupyDB::class.java, "database-name"
-        )
-            .allowMainThreadQueries()
-            .build()
+        val db = ZakupyDB.getInstance(applicationContext) //otwarcie bazy danych
 
-
-        //db.ZakupyDao().insert(Zakupy(przedmiot = "sałata", ok = false))
-
-        val lista_zakupow =db.ZakupyDao().getAll()
-
-        binding.zakupyRecyclerview.apply {
-            layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = ZakupyAdapter(lista_zakupow)
-        }
+        refresh_liste_z() //odswierzanie, tutaj utworzenie recyclerView
 
 
         binding.dodaj.setOnClickListener {
@@ -55,8 +41,8 @@ class MainActivity : AppCompatActivity() {
 
             builder.setPositiveButton("OK", // przycisk OK
                 DialogInterface.OnClickListener { dialog, which ->
-                    db.ZakupyDao().insert(Zakupy(przedmiot = input.text.toString(), ok = false)) //dodanie do bazy danych
-                    refresh_liste_z(db.ZakupyDao().getAll()) //odswierzanie widoku recyclerview
+                    db?.ZakupyDao()?.insert(Zakupy(przedmiot = input.text.toString(), ok = false)) //dodanie do bazy danych
+                    refresh_liste_z() //odswierzanie widoku recyclerview
 
                 })
             builder.setNegativeButton("Cancel", // przycisk Cancel
@@ -66,15 +52,13 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-    private fun refresh_liste_z( lista: List<Zakupy>){
+    private fun refresh_liste_z(){
 
-
+        var lista_zakupow =ZakupyDB.getInstance(this@MainActivity)?.ZakupyDao()?.getAll()
+        //znaki zapytania odpowiadają za to czy zmienna może mieć wartość null
         binding.zakupyRecyclerview.apply {
             layoutManager = LinearLayoutManager(this@MainActivity)
-            adapter = ZakupyAdapter(lista)}
-    }
-    fun kasuj( pozycja:Zakupy ) {
-        //val db:Zakupy = Zakupy(this@MainActivity)
-        //db.ZakupyDao().delete(pozycja)
+            adapter = lista_zakupow?.let { ZakupyAdapter(it) }
+        }
     }
 }
