@@ -22,7 +22,7 @@ interface ZakupyDao {
     @Query( "SELECT * FROM Zakupy")
     fun getAll(): List<Zakupy>
 
-    @Query( "SELECT * FROM Zakupy WHERE lista=:nrlisty")  //wybieram tylko te elementy, które maja odpowiedni numer listy
+    @Query( "SELECT * FROM Zakupy WHERE lista=:nrlisty") //wybieram tylko te elementy, które maja odpowiedni numer listy
     fun getzakupyzlisty(nrlisty:Int): List<Zakupy>
 
     @Insert
@@ -40,8 +40,11 @@ interface ListaDao {
     @Query( "SELECT * FROM Lista")
     fun getAll(): List<Lista>
 
-    @Query( "SELECT * FROM Lista WHERE id=:nrlisty") //wybierany jest tytul listy
+    @Query( "SELECT * FROM Lista WHERE id=:nrlisty")
     fun getlistabynr(nrlisty:Int): List<Lista>
+
+    @Query( "SELECT max(id) FROM Lista") //wybierz ostatnia liste element ze zbioru
+    fun getlistamax(): Int
 
     @Insert
     fun insert(vararg pozycja: Lista)

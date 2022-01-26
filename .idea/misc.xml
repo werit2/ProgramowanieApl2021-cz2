@@ -5,15 +5,19 @@
       <map>
         <entry key="..\:/Projekty/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Projekty/AndroidStudioProjects/MyApplication2/app/src/main/res/layout/przedmiot_row.xml" value="0.21693840579710144" />
-        <entry key="..\:/Projekty/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/layout/activity_main.xml" value="0.16983695652173914" />
-        <entry key="..\:/Projekty/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/layout/activity_zakupy.xml" value="0.16983695652173914" />
-        <entry key="..\:/Projekty/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/layout/lista_row.xml" value="0.16983695652173914" />
-        <entry key="..\:/Projekty/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/layout/przedmiot_row.xml" value="0.16983695652173914" />
+        <entry key="..\:/Projekty/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/layout/activity_main.xml" value="0.12360688956433637" />
+        <entry key="..\:/Projekty/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/layout/activity_zakupy.xml" value="0.12360688956433637" />
+        <entry key="..\:/Projekty/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/layout/lista_row.xml" value="0.12360688956433637" />
+        <entry key="..\:/Projekty/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/layout/przedmiot_row.xml" value="0.1956521739130435" />
+        <entry key="..\:/Projekty/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/menu/zakupy_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/kdid/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2703125" />
         <entry key="..\:/Users/kdid/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/layout/activity_main.xml" value="0.12228260869565218" />
         <entry key="..\:/Users/kdid/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/layout/activity_zakupy.xml" value="0.4" />
         <entry key="..\:/Users/kdid/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/layout/lista_gl.xml" value="0.12092391304347826" />
         <entry key="..\:/Users/kdid/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/layout/lista_row.xml" value="0.17255434782608695" />
         <entry key="..\:/Users/kdid/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/layout/lista_zakupow.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/kdid/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/layout/przedmiot_row.xml" value="0.23278985507246377" />
+        <entry key="..\:/Users/kdid/AndroidStudioProjects/ProgramowanieApl2021-cz2-master/app/src/main/res/menu/zakupy_menu.xml" value="0.2490740740740741" />
       </map>
     </option>
   </component>

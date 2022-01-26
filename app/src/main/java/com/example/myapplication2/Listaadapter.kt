@@ -34,7 +34,7 @@ class Listaadapter(private var listaList: List<Lista>) :
 
         holder.view.nazwalisty.text = tekst
 
-        if(position %2==0) // co druga pozycja ma szare tło
+        if(position %2==0)
             holder.view.setBackgroundColor(Color.LTGRAY)
         else holder.view.setBackgroundColor(Color.WHITE)
 
@@ -45,14 +45,10 @@ class Listaadapter(private var listaList: List<Lista>) :
                 DialogInterface.OnClickListener { dialog, which ->
                     var pozycjedousuniecia:List<Zakupy> //deklaruje zmienna
                     pozycjedousuniecia=db?.ZakupyDao()?.getzakupyzlisty(listaList[position].id)!! //przypisuje do zmiennej wszystkie elementy o identyfikatorze listy
-                    pozycjedousuniecia.forEach {
-                        //Log.d("X1","Recycler usuwanie listy "+ it.przedmiot + ", z listy " + it.lista)
-                        db?.ZakupyDao().delete(it) //usuwam elementy z listy
-
+                    for (zakupy in pozycjedousuniecia) {
+                        db?.ZakupyDao().delete(zakupy) //usuwam elementy z listy
                     }
-
                     db?.ListaDao()?.delete(listaList[position]) //usuwam sama liste
-
                     listaList=(db?.ListaDao()?.getAll()!!) //znaki zapytania oznaczaj ze zmienna moze przyjmowac null, a wykrzykini konwertuja na zmienna nie-null
                     update()
                 })

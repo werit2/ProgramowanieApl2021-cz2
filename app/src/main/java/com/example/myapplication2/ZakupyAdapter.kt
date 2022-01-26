@@ -1,5 +1,6 @@
 package com.example.myapplication2
 
+import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,6 +26,7 @@ class ZakupyAdapter(private var listaZakupow: List<Zakupy>,val nrlisty:Int) :
 
         holder.view.przedmiot.text = listaZakupow[position].przedmiot
         holder.view.przedmiot.isChecked = listaZakupow[position].ok!!
+        if (listaZakupow[position].ok==true) holder.view.przedmiot.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG)
 
         holder.view.usun.setOnClickListener{
 
@@ -38,9 +40,11 @@ class ZakupyAdapter(private var listaZakupow: List<Zakupy>,val nrlisty:Int) :
 
             if (listaZakupow[position].ok == true){
                 listaZakupow[position].ok = false
+                holder.view.przedmiot.setPaintFlags(0)
             }
             else {
                 listaZakupow[position].ok = true
+                holder.view.przedmiot.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG)
             }
             db?.ZakupyDao()?.done(listaZakupow[position])
             //db?.ZakupyDao()?.insert(Zakupy(przedmiot = input.text.toString(), ok = false)
